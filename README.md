@@ -11,6 +11,8 @@ Source for AI algorithm: http://web.mit.edu/sp.268/www/2010/connectFourSlides.pd
 can’t take it.
 3. Take the center square over edges and corners.
 4. Take corner squares over edges.
-5. Take edges if they are the only thing available." 
+5. Take edges if they are the only thing available."
+
+More sources: http://connect4.gamesolver.org/
 
 Functions: 
