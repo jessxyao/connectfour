@@ -1,2 +1,2 @@
 # connectfour
-CS10 Final Porject
+CS10 Final Project
