@@ -15,4 +15,6 @@ can’t take it.
 
 More sources: http://connect4.gamesolver.org/
 
+Minimax article: http://giocc.com/concise-implementation-of-minimax-through-higher-order-functions.html
+
 Functions: 
