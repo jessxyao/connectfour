@@ -16,6 +16,7 @@ can’t take it.
 More sources: http://connect4.gamesolver.org/
 
 Minimax article: http://giocc.com/concise-implementation-of-minimax-through-higher-order-functions.html
+Minimax video: https://www.youtube.com/watch?v=fInYh90YMJU
 Alpha-Beta pruning: https://www.cs.rochester.edu/u/kautz/Courses/242spring2014/242ai06-alpha-beta-pruning.pdf
 
 Functions: 
