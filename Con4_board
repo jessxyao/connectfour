@@ -1,0 +1,19 @@
+
+def drawboard():
+	for i in range(1,7):   #change the range of number, you could change the the number of the row
+	 print('+---+---+---+---+---+---+---+')
+	 print('|   |   |   |   |   |   |   |') 
+
+	print('+---+---+---+---+---+---+---+') #row= 7, column = 6
+
+drawboard()
+
+
+def newboard():
+	board = []
+	for i in range(1,7): 
+	 board.append([' '] * 6)  # 6 is the height of the board
+
+	return board
+
+newboard()
