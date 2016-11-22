@@ -1,3 +1,5 @@
+#what are classes?
+
 class Board(object):
     """Object that holds board values""""
 
@@ -5,9 +7,15 @@ class Board(object):
         super(, self).__init__()
         self.arg = arg
 
-    def drawBoard(board):
+    def board():
+        for i in range(1.8):
+            print('+---+---+---+---+---+---+')
+            print('|   |   |   |   |   |   |')
+        print('+---+---+---+---+---+---+')
+    board()
 
     def getNewBoard():
+        board()
 
 BOARDHEIGHT = 7
 BOARDWIDTH  = 6
@@ -19,7 +27,7 @@ class Game(object):
 """Code that holds Connect 4 game values"""
 
     board = None
-    round = None
+    turn = None
     finished = None
     winner = None
     turn = None
@@ -78,6 +86,22 @@ class Game(object):
     # lets player choose x or o for their marker
 
     def playermove():
+
+#### AI is minimax
+
+class AI(Player):
+    ""AI object that uses AI algorithm, minimax. Difficulty parameter directs to 2 different algorithms"
+
+
+    difficulty = None
+
+    def __init__(self, name, marker, difficulty="e"):
+        self.type = "AI"
+        self.name = name
+        self.marker = marker
+        self.difficulty = difficulty
+
+#### incomplete
 
     def computermove():
 
