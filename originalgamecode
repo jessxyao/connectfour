@@ -1,0 +1,39 @@
+class Board(object):
+    """docstring for ."""
+
+    def __init__(self, arg):
+        super(, self).__init__()
+        self.arg = arg
+
+    def drawBoard(board):
+
+    def getNewBoard():
+
+BOARDHEIGHT = 7
+BOARDWIDTH  = 6
+mainboard = getNewBoard()
+print(drawBoard(mainboard))
+
+class Game(object):
+
+    """docstring for ."""
+    def __init__(self, arg):
+        super(, self).__init__()
+        self.arg = arg
+
+
+    def whichMarker():
+    # lets player choose x or o for their marker
+
+    def playermove():
+
+    def computermove():
+
+    def getPotentialMoves():
+
+    def checkWinningMoves():
+
+    def player1move():
+    # in case it's a 2 person game instead of player vs computer
+
+    def playAgain():
