@@ -1,1 +1,31 @@
+def drawBoard(board):
+    print()
+    print(' ', end='')
+    for x in range(1, BOARDWIDTH + 1):
+        print(' %s  ' % x, end='')
+    print()
 
+    print('+---+' + ('---+' * (BOARDWIDTH - 1)))
+
+    for y in range(BOARDHEIGHT):
+        print('|   |' + ('   |' * (BOARDWIDTH - 1)))
+
+        print('|', end='')
+        for x in range(BOARDWIDTH):
+            print(' %s |' % board[x][y], end='')
+        print()
+
+        print('|   |' + ('   |' * (BOARDWIDTH - 1)))
+
+        print('+---+' + ('---+' * (BOARDWIDTH - 1)))
+
+def getNewBoard():
+    board = []
+    for x in range(BOARDWIDTH):
+        board.append([' '] * BOARDHEIGHT)
+    return board
+
+BOARDHEIGHT = 7
+BOARDWIDTH  = 6
+mainboard = getNewBoard()
+print(drawBoard(mainboard))
