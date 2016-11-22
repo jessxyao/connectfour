@@ -1,5 +1,5 @@
 class Board(object):
-    """docstring for ."""
+    """Object that holds board values""""
 
     def __init__(self, arg):
         super(, self).__init__()
@@ -16,11 +16,63 @@ print(drawBoard(mainboard))
 
 class Game(object):
 
-    """docstring for ."""
+"""Code that holds Connect 4 game values"""
+
+    board = None
+    round = None
+    finished = None
+    winner = None
+    turn = None
+    players = [None, None]
+    game_name = u"Connect Four"# U+2122 is "tm" this is a joke
+    markers = ["x", "o"]
+
+
     def __init__(self, arg):
         super(, self).__init__()
         self.arg = arg
 
+ os.system( [ 'clear', 'cls' ][ os.name == 'nt' ] )
+        print(u"Welcome to {0}!".format(self.game_name))
+        print("Should Player 1 be a Human or a Computer?")
+        while self.players[0] == None:
+            choice = str(input("Type 'H' or 'C': "))
+            if choice == "Human" or choice.lower() == "h":
+                name = str(input("What is Player 1's name? "))
+                self.players[0] = Player(name, self.markers[0])
+            elif choice == "Computer" or choice.lower() == "c":
+                name = str(input("What is Player 1's name? "))
+                print("Choose AI difficulty of either Easier or Harder")
+                if diff == "Easier" or choice.lower() == "e":
+                    diff = ###finish after AI difficulty finished
+                elif choice == "Harder" or choice.lower() == "h":
+                    diff = ###same
+                else:
+                    print("Invalid choice, please try again")
+                self.players[0] = AIPlayer(name, self.markers[0], #difficulty)
+            else:
+                print("Invalid choice, please try again")
+        print("{0} will be {1}".format(self.players[0].name, self.markers[0]))
+
+        print("Should Player 2 be a Human or a Computer?")
+        while self.players[1] == None:
+            choice = str(input("Type 'H' or 'C': "))
+            if choice == "Human" or choice.lower() == "h":
+                name = str(input("What is Player 2's name? "))
+                self.players[1] = Player(name, self.markers[1])
+            elif choice == "Computer" or choice.lower() == "c":
+                name = str(input("What is Player 2's name? "))
+                print("Choose AI difficulty of either Easier or Harder")
+                if diff == "Easier" or choice.lower() == "e":
+                    diff = ###finish after AI difficulty finished
+                elif choice == "Harder" or choice.lower() == "h":
+                    diff = ###same
+                else:
+                    print("Invalid choice, please try again")
+                self.players[1] = AIPlayer(name, self.colors[1], #difficulty)
+            else:
+                print("Invalid choice, please try again")
+        print("{0} will be {1}".format(self.players[1].name, self.markers[1]))
 
     def whichMarker():
     # lets player choose x or o for their marker
