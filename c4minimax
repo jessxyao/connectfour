@@ -1,0 +1,84 @@
+import random
+from sys import maxsize
+
+class Node(object):
+    def __init__(self, i_depth, i_playerNum, i_movesRemaining)
+        self.i_depth = i_depth #depth of tree
+        self.i_playerNum = i.playerNum #either +1 or -1
+        self.i_movesRemaining = #given choice
+        self.i_value = i_value #game state
+        self.children = []
+        self.CreateChildren()
+
+    def CreateChildren(self):
+        if self.i_depth >= 0:
+            for i in range( #????)
+            v = self.i_movesRemaining - i
+            self.children.append(Node(self.i_depth - 1, -self.i_playerNum, v, self.RealVal(v)))
+
+    def RealVal(self, value):
+        if (value == 0):
+            return maxsize * self.i_playerNum
+        elif (value < 0):
+            return maxsize * -self.i_playerNum
+        return 0
+
+    def MiniMax(node, i_depth, i_playerNum):
+        if (i_depth == 0) or (abs(node.i_value) == maxsize):
+            return node.i_value
+
+        i_bestValue = maxsize * -i_playerNum
+
+        for i in range(len(node.children)):
+            child = node.children[i]
+            i_val = MiniMax(child, i_depth - 1, -i_playerNum)
+            if (abs(maxsize * i_playerNum - i_val < abs(maxsize * i_playerNum)):
+                i_bestValue = i_val
+
+#### implementation
+
+def checkWin(i_moves, i_playerNum):
+    if i_moves ....
+
+if __name__ = '__main__':
+    i_movesTotal = #??
+    i_depth =
+    i_curPlayer =
+
+
+
+
+
+class minimax(object):
+    """minimax object that takes Connect 4 game state and evaluates min and max moves for the current game state
+    """
+
+    board = None
+    markers = ["x", "o"]
+
+    def __init__(self, board):
+        # make a copy of the board to self.board
+        self.board = [x[:] for x in board]
+
+
+### taken from giocc.com article "concise implementation of minimax through HOFs"
+
+def minimax(game_state):
+  return max(
+    map(lambda move: (move, min_play(game_state.next_state(move))),
+      game_state.get_available_moves()),
+    key = lambda x: x[1])
+
+def min_play(game_state):
+  if game_state.is_gameover():
+    return evaluate(game_state)
+  return min(
+    map(lambda move: max_play(game_state.next_state(move)),
+      game_state.get_available_moves()))
+
+def max_play(game_state):
+  if game_state.is_gameover():
+    return evaluate(game_state)
+  return max(
+    map(lambda move: min_play(game_state.next_state(move)),
+      game_state.get_available_moves()))
