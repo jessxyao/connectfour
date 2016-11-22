@@ -1,6 +1,6 @@
 # connectfour
 CS10 Final Project
 
-Source code for game board from Programming Python copyright 2014. 
+Source code for game board from http://inventwithpython.com/extra/fourinarow_text.py. 
 
 Functions: 
