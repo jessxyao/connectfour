@@ -16,3 +16,4 @@ def drawBoard(board):
         print('+--+--+--+--+--+--+--+')
 
 drawBoard(mainboard)
+#Warning: These codes seems to be available under python3, because (end="") sometimes is regarded as 'invaild syntax' in other version of python. 
