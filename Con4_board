@@ -7,6 +7,7 @@ def getNewBoard():
 mainboard = getNewBoard()
 
 def drawBoard(board):
+    print(' 1  2  3  4  5  6  7 ')
     print('+--+--+--+--+--+--+--+')
     for y in range(6): # height of the matrix
        
