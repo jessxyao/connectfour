@@ -18,3 +18,14 @@ def drawBoard(board):
 
 drawBoard(mainboard)
 #Warning: These codes seems to be available under python3, because (end="") sometimes is regarded as 'invaild syntax' in other version of python. 
+
+def InputItem():
+	item = ''
+	print('Wecome to C4!')
+	while not (item == 'X' or item == 'O') :
+		item = input('DO you want to be X or O:')
+
+	if item == 'X':
+		return ['X', 'O']
+	if item == 'O':
+		return ['O', 'X']
