@@ -47,8 +47,6 @@ if __name__ = '__main__':
 
 
 
-
-
 class minimax(object):
     """minimax object that takes Connect 4 game state and evaluates min and max moves for the current game state
     """
@@ -60,6 +58,81 @@ class minimax(object):
         # make a copy of the board to self.board
         self.board = [x[:] for x in board]
 
+##OR %% no class and just:
+def minimax_decision(game_state, object):
+
+    def bestMove(self, game_state, marker):
+
+
+    def heurVal(self, game_state, marker):
+        """state is the board. Simple heuristic is (num of 4inarows)*10000 + (num of 3inarows)*1000 + (num of 2inarows)*10 - (num of opponent 4inarows)*10000 (num of opponent
+            3inarows)*100 - (num of opponent 2inarows)*10
+        """
+
+        p1fours = self.checkstreak(state, marker, 4)
+        p1threes = self.checkstreak(state, marker, 3)
+        p1twos = self.checkstreak(state, marker, 2)
+        p2fours = self.checkstreak(state, p2marker, 4)
+        p2threes = self.checkstreak(state, p2marker, 3)
+        p2twos = self.checkstreak(state, p2marker, 2)
+
+        if marker == self.markers[0]:
+            p2marker = self.markers[1]
+        else:
+            p2marker = self.markers[0]
+
+        if p2fours > 0:
+            return -10000 * p2fours
+        else:
+            return p1fours*10000 + p1threes*100 + p1twos*10
+
+    def checkstreak(self, game_state, marker, streak):
+        number = 0
+        for i in range(6): #checking rows
+            for j in range(7): #checking columns
+            if state[i][j].lower() == marker.lower():
+            number += self.horizstreak(i, j, state, streak)
+            number += self.vertstreak(i, j, state, streak)
+            number += self.diagstreak(i, j, state, streak)
+        return number
+
+    def horizstreak(self, row, col, game_state, streak):
+        number1 = 0
+        for j in range(col, 7):
+            if state[row][j].lower() == state[row][col].lower():
+                number1 += 1
+            else:
+                break #loop control
+
+    def vertstreak(self, row, col, game_state, streak):
+        number1 = 0
+        for i in range(row, 6):
+            if state[i][col].lower() == state[row][col].lower():
+                number1 += 1
+            else:
+                break #loop control
+
+    def diagstreak(self, row, col, game_state, streak):
+        #check diagonals with positive and negative slopes lol
+        diagnum = 0
+        number1 = 0
+        j = col
+        i = row
+        for i in range(row, 6):
+            if j> 6:
+                break
+            elif state[i][j].lower() == state[row][col].lower():
+                number1 += 1
+            else:
+                break
+            j += 1
+
+
+    def searchdepth(self, depth, grid, curr_player_marker):
+        """
+        Searches in the tree at depth = `depth`
+        return alpha: value calculated with the heuristic. 
+        """
 
 ### taken from giocc.com article "concise implementation of minimax through HOFs"
 
