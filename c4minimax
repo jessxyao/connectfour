@@ -8,7 +8,7 @@ class Node(object):
         self.i_movesRemaining = #given choice
         self.i_value = i_value #game state
         self.children = []
-        self.CreateChildren()
+        self.CreateChildren():
 
     def CreateChildren(self):
         if self.i_depth >= 0:
