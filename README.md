@@ -17,6 +17,8 @@ More sources: http://connect4.gamesolver.org/
 http://mathforum.org/library/drmath/view/56137.html
 http://roadtolarissa.com/connect-4-ai-how-it-works/
 
+Explaining the 'self' variable in classes: https://pythontips.com/2013/08/07/the-self-variable-in-python-explained/
+
 Minimax article: http://giocc.com/concise-implementation-of-minimax-through-higher-order-functions.html
 Minimax video: https://www.youtube.com/watch?v=fInYh90YMJU
 Alpha-Beta pruning: https://www.cs.rochester.edu/u/kautz/Courses/242spring2014/242ai06-alpha-beta-pruning.pdf
