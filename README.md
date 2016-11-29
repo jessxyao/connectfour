@@ -14,6 +14,8 @@ can’t take it.
 5. Take edges if they are the only thing available."
 
 More sources: http://connect4.gamesolver.org/
+http://mathforum.org/library/drmath/view/56137.html
+http://roadtolarissa.com/connect-4-ai-how-it-works/
 
 Minimax article: http://giocc.com/concise-implementation-of-minimax-through-higher-order-functions.html
 Minimax video: https://www.youtube.com/watch?v=fInYh90YMJU
