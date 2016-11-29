@@ -29,3 +29,15 @@ def InputItem():
 		return ['X', 'O']
 	if item == 'O':
 		return ['O', 'X']
+		
+def dropMarker(board, player, column)
+    for y in range(BoardHeight -1,-1,-1):
+        if board[column] [y] == ' ':
+            board[column] [y] = player
+            return
+
+def validDropMarker(board, move)
+    if move < 0 or move >= (BoardWidth):
+       return False
+    else
+       return True 
