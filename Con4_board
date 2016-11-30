@@ -1,10 +1,10 @@
-def getNewBoard():
+def CopyOfBoard():
     board = []
     for x in range(7):
         board.append([' '] * 6)
     return board
     
-mainboard = getNewBoard()
+mainboard = CopyOfBoard()
 
 def drawBoard(board):
     print(' 1  2  3  4  5  6  7 ')
