@@ -14,18 +14,24 @@ class Board(object):
         super(, self).__init__()
         self.arg = arg
 
-    def board():
-        for i in range(1.8):
-            print('+---+---+---+---+---+---+')
-            print('|   |   |   |   |   |   |')
-        print('+---+---+---+---+---+---+')
-    board()
+def CopyOfBoard():
+    board = []
+    for x in range(7):
+        board.append([' '] * 6)
+    return board
+    
+mainboard = CopyOfBoard()
 
-    def getNewBoard():
-        board()
+def drawBoard(board):
+    print(' 1  2  3  4  5  6  7 ')
+    print('+--+--+--+--+--+--+--+')
+    for y in range(6): # height of the matrix
+       
+        for x in range(1,7): # width of the matrix
+            print('| {}' .format(board[x][y]), end="")
+        print('|  |')
+        print('+--+--+--+--+--+--+--+')
 
-BOARDHEIGHT = 7
-BOARDWIDTH  = 6
 mainboard = getNewBoard()
 
 class Game(object):
