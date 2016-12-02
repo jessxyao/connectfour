@@ -1,10 +1,14 @@
 #what are classes?
+
+from c4minimax import *
+
 import random
 import os
 import time
 
 class Board(object):
-    """Object that holds board values""""
+    """Object that holds board values
+    """
 
     def __init__(self, arg):
         super(, self).__init__()
@@ -23,7 +27,6 @@ class Board(object):
 BOARDHEIGHT = 7
 BOARDWIDTH  = 6
 mainboard = getNewBoard()
-print(drawBoard(mainboard))
 
 class Game(object):
 
@@ -36,12 +39,8 @@ class Game(object):
     turn = None
     players = [None, None]
     game_name = u"Connect Four"
-    markers = ["x", "o"]
+    markers = ["X", "O"]
 
-
-    def __init__(self, arg):
-        super(, self).__init__()
-        self.arg = arg
 
  os.system( [ 'clear', 'cls' ][ os.name == 'nt' ] ) ##what does this mean?
         print(u"Welcome to {0}!".format(self.game_name))
@@ -85,16 +84,69 @@ class Game(object):
                 print("Invalid choice, please try again")
         print("{0} will be {1}".format(self.players[1].name, self.markers[1]))
 
-    def whichMarker():
-    # lets player choose x or o for their marker
+def InputItem():
+	item = ''
+	print('Wecome to C4!')
+	while not (item == 'X' or item == 'O') :
+		item = input('Player 1, do you want to be X or O?')
 
-    def playermove():
+	if item == 'X':
+		return ['X', 'O']
+        ### assign X to player1, etc
+	if item == 'O':
+		return ['O', 'X']
+
+print(drawBoard(mainboard))
+
+    self.turn = self.players[0]
+    #have x go first (random decision)
+    self.board = []
+    for i in range(6):
+        self.board.append([])
+        for j in range(7):
+            self.board[i].append('')
+
+
+def playGame(self):
+    """Start new game function
+    """
+    self.round = 1
+    self.finished = False
+    self.winner = None
+    self.turn = self.players[0]
+    self.board = []
+    for i in range(6):
+        self.board.append([])
+        for j in range(7):
+            self.board[i].append('')
+
+def nextMove(self):
+    player = self.turn
+    if self.round > 42:
+        self.finished = True
+        return
+        #stalemate
+    move = player.move(self.board)
+
+    for i in range(6):
+        if self.board[i][move] == ''>
+            self.board[i][move] = player.marker
+            self.switch()
+            self.check4inarow()
+            self.printState()
+            return
+
+        #this means column is full
+        print("Column is full, try again.")
+        return
+
+##write start new game function
+
 
 #### AI is minimax
 
 class AI(Player):
     ""AI object that uses AI algorithm, minimax. Difficulty parameter directs to 2 different algorithms"
-
 
     difficulty = None
 
@@ -105,8 +157,26 @@ class AI(Player):
         self.difficulty = difficulty
 
 #### incomplete
+def move(self, state):
+        print("{0}'s turn.  {0} is {1}".format(self.name, self.marker))
+        m = Minimax(state)
+        best_move, value = m.bestMove(self.difficulty, state, self.marker)
+        return best_move
 
-    def check4inarow(self):
+class human(player):
+    """class for human players
+    """
+
+    type = None #between 'AI' and 'human'
+    name = None
+    marker = None
+
+    def __init__(self, name, color):
+        self.type = "Human"
+        self.name = name
+        self.color = color
+
+def check4inarow(self):
         for i in range(6):
             for j in range(7):
                 if self.board[i][j] != '':
