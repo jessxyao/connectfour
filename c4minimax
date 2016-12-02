@@ -1,70 +1,21 @@
 import random
 from sys import maxsize
 
-class Node(object):
-    def __init__(self, i_depth, i_playerNum, i_movesRemaining)
-        self.i_depth = i_depth #depth of tree
-        self.i_playerNum = i.playerNum #either +1 or -1
-        self.i_movesRemaining = #given choice
-        self.i_value = i_value #game state
-        self.children = []
-        self.CreateChildren():
-
-    def CreateChildren(self):
-        if self.i_depth >= 0:
-            for i in range( #????)
-            v = self.i_movesRemaining - i
-            self.children.append(Node(self.i_depth - 1, -self.i_playerNum, v, self.RealVal(v)))
-
-    def RealVal(self, value):
-        if (value == 0):
-            return maxsize * self.i_playerNum
-        elif (value < 0):
-            return maxsize * -self.i_playerNum
-        return 0
-
-    def MiniMax(node, i_depth, i_playerNum):
-        if (i_depth == 0) or (abs(node.i_value) == maxsize):
-            return node.i_value
-
-        i_bestValue = maxsize * -i_playerNum
-
-        for i in range(len(node.children)):
-            child = node.children[i]
-            i_val = MiniMax(child, i_depth - 1, -i_playerNum)
-            if (abs(maxsize * i_playerNum - i_val < abs(maxsize * i_playerNum)):
-                i_bestValue = i_val
-
-#### implementation
-
-def checkWin(i_moves, i_playerNum):
-    if i_moves ....
-
-if __name__ = '__main__':
-    i_movesTotal = #??
-    i_depth =
-    i_curPlayer =
-
-
-
-class minimax(object):
-    """minimax object that takes Connect 4 game state and evaluates min and max moves for the current game state
-    """
-
-    board = None
-    markers = ["x", "o"]
-
-    def __init__(self, board):
-        # make a copy of the board to self.board
-        self.board = [x[:] for x in board]
-
 ##OR %% no class and just:
-def minimax_decision(game_state, object):
+def minimax_decision(state, object):
 
-    def bestMove(self, game_state, marker):
+def availablemoves(self, state):
+    """Boolean to assess whether or not a move is possible.
+    """
+    for i in range(6):
+        if state[i][j].lower() == "":
+return True
+    else:
+return False
 
+    def bestMove(self, state, marker):
 
-    def heurVal(self, game_state, marker):
+    def heurVal(self, state, marker):
         """state is the board. Simple heuristic is (num of 4inarows)*10000 + (num of 3inarows)*1000 + (num of 2inarows)*10 - (num of opponent 4inarows)*10000 (num of opponent
             3inarows)*100 - (num of opponent 2inarows)*10
         """
@@ -86,7 +37,7 @@ def minimax_decision(game_state, object):
         else:
             return p1fours*10000 + p1threes*100 + p1twos*10
 
-    def checkstreak(self, game_state, marker, streak):
+    def checkstreak(self, state, marker, streak):
         number = 0
         for i in range(6): #checking rows
             for j in range(7): #checking columns
@@ -96,7 +47,7 @@ def minimax_decision(game_state, object):
             number += self.diagstreak(i, j, state, streak)
         return number
 
-    def horizstreak(self, row, col, game_state, streak):
+    def horizstreak(self, row, col, state, streak):
         number1 = 0
         for j in range(col, 7):
             if state[row][j].lower() == state[row][col].lower():
@@ -104,7 +55,7 @@ def minimax_decision(game_state, object):
             else:
                 break #loop control
 
-    def vertstreak(self, row, col, game_state, streak):
+    def vertstreak(self, row, col, state, streak):
         number1 = 0
         for i in range(row, 6):
             if state[i][col].lower() == state[row][col].lower():
@@ -112,7 +63,7 @@ def minimax_decision(game_state, object):
             else:
                 break #loop control
 
-    def diagstreak(self, row, col, game_state, streak):
+    def diagstreak(self, row, col, state, streak):
         #check diagonals with positive and negative slopes lol
         diagnum = 0
         number1 = 0
@@ -126,32 +77,11 @@ def minimax_decision(game_state, object):
             else:
                 break
             j += 1
+#check for negative slopes
 
 
     def searchdepth(self, depth, grid, curr_player_marker):
         """
         Searches in the tree at depth = `depth`
-        return alpha: value calculated with the heuristic. 
+        return alpha: value calculated with the heuristic.
         """
-
-### taken from giocc.com article "concise implementation of minimax through HOFs"
-
-def minimax(game_state):
-  return max(
-    map(lambda move: (move, min_play(game_state.next_state(move))),
-      game_state.get_available_moves()),
-    key = lambda x: x[1])
-
-def min_play(game_state):
-  if game_state.is_gameover():
-    return evaluate(game_state)
-  return min(
-    map(lambda move: max_play(game_state.next_state(move)),
-      game_state.get_available_moves()))
-
-def max_play(game_state):
-  if game_state.is_gameover():
-    return evaluate(game_state)
-  return max(
-    map(lambda move: min_play(game_state.next_state(move)),
-      game_state.get_available_moves()))
