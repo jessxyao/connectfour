@@ -16,6 +16,9 @@ can’t take it.
 More sources: http://connect4.gamesolver.org/
 http://mathforum.org/library/drmath/view/56137.html
 http://roadtolarissa.com/connect-4-ai-how-it-works/
+https://learnpythonthehardway.org/book/ex40.html - basic OOP structure, explanation of classes and dot notation
+
+also, used slides from CS188 (AI) to model our minimax after. 
 
 Explaining the 'self' variable in classes: https://pythontips.com/2013/08/07/the-self-variable-in-python-explained/
 
