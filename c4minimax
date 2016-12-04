@@ -1,50 +1,31 @@
 import random
 from sys import maxsize
 
-##OR %% no class and just:
-def minimax_decision(state, object):
-
-def availablemoves(self, state):
-    """Boolean to assess whether or not a move is possible.
+class minimax(object):
+    """minimax object
     """
-    for i in range(6):
-        if state[i][j].lower() == "":
-return True
-    else:
-return False
+    board = None
+    markers = ["X", "O"]
 
-    def bestMove(self, state, marker):
+    def __init__(self, board):
+        self.board = [x[:] for x in board]
 
-    def heurVal(self, state, marker):
-        """state is the board. Simple heuristic is (num of 4inarows)*10000 + (num of 3inarows)*1000 + (num of 2inarows)*10 - (num of opponent 4inarows)*10000 (num of opponent
-            3inarows)*100 - (num of opponent 2inarows)*10
-        """
-
-        p1fours = self.checkstreak(state, marker, 4)
-        p1threes = self.checkstreak(state, marker, 3)
-        p1twos = self.checkstreak(state, marker, 2)
-        p2fours = self.checkstreak(state, p2marker, 4)
-        p2threes = self.checkstreak(state, p2marker, 3)
-        p2twos = self.checkstreak(state, p2marker, 2)
-
-        if marker == self.markers[0]:
-            p2marker = self.markers[1]
+    def isgameover(self, state):
+        if self.checkstreak(state, self.markers[0], 4) >=1:
+            return True
+        elif self.checkstreak(state, self.markers[1], 4) >=1:
+            return True
         else:
-            p2marker = self.markers[0]
-
-        if p2fours > 0:
-            return -10000 * p2fours
-        else:
-            return p1fours*10000 + p1threes*100 + p1twos*10
+            return False
 
     def checkstreak(self, state, marker, streak):
         number = 0
         for i in range(6): #checking rows
             for j in range(7): #checking columns
-            if state[i][j].lower() == marker.lower():
-            number += self.horizstreak(i, j, state, streak)
-            number += self.vertstreak(i, j, state, streak)
-            number += self.diagstreak(i, j, state, streak)
+                if state[i][j].lower() == marker.lower():
+                    number += self.horizstreak(i, j, state, streak)
+                    number += self.vertstreak(i, j, state, streak)
+                    number += self.diagstreak(i, j, state, streak)
         return number
 
     def horizstreak(self, row, col, state, streak):
@@ -54,6 +35,7 @@ return False
                 number1 += 1
             else:
                 break #loop control
+        return number1
 
     def vertstreak(self, row, col, state, streak):
         number1 = 0
@@ -62,26 +44,127 @@ return False
                 number1 += 1
             else:
                 break #loop control
+        return number1
 
     def diagstreak(self, row, col, state, streak):
         #check diagonals with positive and negative slopes lol
         diagnum = 0
-        number1 = 0
+        number = 0
         j = col
         i = row
         for i in range(row, 6):
             if j> 6:
                 break
             elif state[i][j].lower() == state[row][col].lower():
-                number1 += 1
+                number += 1
             else:
                 break
             j += 1
-#check for negative slopes
+        if number >= streak:
+            diagnum += 1
+        number = 0
+        j = col
+        for i in range(row, -1, -1):
+            if j > 6:
+                break
+            elif state[i][j].lower() == state[row][col].lower():
+                number += 1
+            else:
+                break
+            j += 1
+        if number >= streak:
+            diagnum += 1
+        return diagnum
+
+    def availablemove(self, state):
+        """Boolean to assess whether or not a move is possible.
+        """
+        for i in range(6):
+            for j in range(7):
+                if state[i][j].lower() == " ":
+                    return True
+                else:
+                    return False
+
+    def move(self, state, col, marker):
+        """function to make a move, changes the state.
+        """
+        temporary = [x[:] for x in state]
+        for i in range(6):
+            if temporary[i][col] == " ":
+                temporary[i][col] == marker
+                return temporary
+
+    def bestMove(self, state, marker):
+
+        legalmoves = {}
+        oppmarker = self.markers[self.markers.index(marker)-1]
+        depth = 4
+        '''if player == self.markers[0]:
+            player2 = self.markers[1]
+        else:
+            player2 = self.markers[0]'''
+        #dictionary of legal move states to alpha values
+        for col in range(7):
+            if self.availablemove(state):
+                temporary = self.move(state, col, marker)
+                legalmoves[col] = -self.search(depth-1, temporary, oppmarker)
+
+        optimalalpha = -1000000
+        optimalmove = None
+        moves = legalmoves.items()
+        random.shuffle(list(moves))
+        for move, alpha in moves:
+            if alpha>= optimalalpha:
+                optimalalpha = alpha
+                optimalmove = move
+        return optimalmove, optimalalpha
+
+    def search(self, depth, state, player):
+        """tree searching function returning alpha value
+        """
+
+        legalmoves = []
+        for i in range(7):
+            if self.availablemove(state):
+                temporary = self.move(state, i, player)
+                legalmoves.append(temporary)
+
+        #terminal node or depth == 0
+        if depth == 0 or len(legalmoves) == 0 or self.isgameover(state):
+            return self.heurVal(state, player)
+
+        if player == self.markers[0]:
+            player2 = self.markers[1]
+        else:
+            player2 = self.markers[0]
+
+        alpha = -1000000
+        for child in legalmoves:
+            if child == None:
+                print("child == None (search)")
+            alpha = max(alpha, -self.search(depth-1, child, player2))
+        return alpha
 
 
-    def searchdepth(self, depth, grid, curr_player_marker):
+    def heurVal(self, state, marker):
+        """state is the board. Simple heuristic is (num of 4inarows)*10000 + (num of 3inarows)*1000 + (num of 2inarows)*10 - (num of opponent 4inarows)*10000 (num of opponent
+            3inarows)*100 - (num of opponent 2inarows)*10
         """
-        Searches in the tree at depth = `depth`
-        return alpha: value calculated with the heuristic.
-        """
+
+        if marker == self.markers[0]:
+            p2marker = self.markers[1]
+        else:
+            p2marker = self.markers[0]
+
+        p1fours = self.checkstreak(state, marker, 4)
+        p1threes = self.checkstreak(state, marker, 3)
+        p1twos = self.checkstreak(state, marker, 2)
+        p2fours = self.checkstreak(state, p2marker, 4)
+        p2threes = self.checkstreak(state, p2marker, 3)
+        p2twos = self.checkstreak(state, p2marker, 2)
+
+        if p2fours > 0:
+            return -10000 * p2fours
+        else:
+            return p1fours*10000 + p1threes*100 + p1twos*10
