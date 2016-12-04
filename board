@@ -1,0 +1,13 @@
+def board():
+    for i in range(1.8):
+        print('+---+---+---+---+---+---+')
+        print('|   |   |   |   |   |   |')
+        print('+---+---+---+---+---+---+')
+    board()
+
+def getNewBoard():
+    board()
+
+BOARDHEIGHT = 7
+BOARDWIDTH  = 6
+mainboard = getNewBoard()
