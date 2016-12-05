@@ -4,6 +4,8 @@ Jess Yao, Omar Ubilla, Naiyu Tian
 
 To play the game, run the playgame.py file in the interactive Python3. 
 
+The AI algorithm is an attempt at implementing MiniMax: however, we ran into a few bugs and the AI is currently not the greatest code. It probably would've been a lengthy fix with the help and guidance of a TA
+
 Sources:
 http://inventwithpython.com/extra/fourinarow_text.py. 
 http://web.mit.edu/sp.268/www/2010/connectFourSlides.pdf
