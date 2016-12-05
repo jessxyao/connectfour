@@ -1,0 +1,42 @@
+CS10 Final Project
+Jess Yao, Omar Ubilla, Naiyu Tian
+
+
+This is a command-line simulation of the popular game, Connect Four. The markers, instead of distinguishing between colors in the physical version of the game, are distinguished between ‘X’ and ‘O’s. The player has the option of playing against another player, or playing against a computer with an AI algorithm. 
+
+
+There are 3 files of Python code for the game: connectfour.py, c4AIminimax.py, and playgame.py. Connectfour.py contains all definitions, game and player classes and objects, c4AIminimax.py contains the algorithm for minimax, and the playgame.py file is the starter function. 
+
+
+To play the game, run the playgame.py file in the interactive Python3. The user will be prompted to select ‘human’ or ‘computer’ for players 1 and 2, as well as assign them names. Then, the user will be prompted to ‘enter a move by column number’ 1-7, as there are only 7 columns in which a player can drop their marker. Whenever either player 1 or player 2 first reaches a streak of 4 markers in a row, the game / round will then be over, scores and statistics printed, and the users will be asked whether or not they want to play again. At the top of the display, there is a ‘round’ counter that counts how many moves have been made. 
+
+
+The AI algorithm is an attempt at implementing MiniMax: however, we ran into a few bugs and the AI is currently not the greatest code. It probably would've been a lengthy fix with the help and guidance of a TA, but alas, deadlines are deadlines and they must be met. We would like to acknowledge though that the different attempts have all been left in the code, some in triple quotes, so you can take a look and perhaps try to follow our train of thought and note the bugs. 
+
+
+Complexity
+This Python command line game is very complex, as we utilized a variety of concepts we hadn’t learned in class. For example, we organized our game and player objects using classes and dot notation, and assigned a heuristic to the game, evaluating the state of the game after every play. Lists and dictionaries are incorporated in storing the state values during the play-by-play heuristic analysis of the board.
+Additionally, we made a very noble and (in our opinion) commendable attempt at implementing MiniMax, a very complex artificial intelligence algorithm. 
+
+
+
+
+Sample game (Jess vs. unspecified Human as a sample run to make sure functionality worked): 
+
+
+
+Sources:
+http://inventwithpython.com/extra/fourinarow_text.py. 
+http://web.mit.edu/sp.268/www/2010/connectFourSlides.pdf
+http://connect4.gamesolver.org/
+http://mathforum.org/library/drmath/view/56137.html
+http://roadtolarissa.com/connect-4-ai-how-it-works/
+https://learnpythonthehardway.org/book/ex40.html 
+https://pythontips.com/2013/08/07/the-self-variable-in-python-explained/
+Minimax article: http://giocc.com/concise-implementation-of-minimax-through-higher-order-functions.html
+Minimax video: https://www.youtube.com/watch?v=fInYh90YMJU
+Alpha-Beta pruning: https://www.cs.rochester.edu/u/kautz/Courses/242spring2014/242ai06-alpha-beta-pruning.pdf
+Berkeley Minimax & A-B pruning format: http://aima.cs.berkeley.edu/python/games.html
+CS188 Minimax & Alpha-Beta pruning slides (courtesy of Jobel)
+
+
